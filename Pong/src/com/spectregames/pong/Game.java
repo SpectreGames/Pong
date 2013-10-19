@@ -24,8 +24,12 @@ package com.spectregames.pong;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
@@ -122,7 +126,7 @@ public class Game extends Canvas implements Runnable {
 			if (System.currentTimeMillis() - timer > 1000){
 				timer+=1000;
 				
-			System.out.println("UDS: " + ticks + ", FPS: " + frames);
+			//System.out.println("UDS: " + ticks + ", FPS: " + frames);
 										
 			ticks=0;
 			frames=0;
@@ -159,17 +163,20 @@ public class Game extends Canvas implements Runnable {
 		game.setMaximumSize(new Dimension(References.WIDTH, References.HEIGHT));
 		
 		// Changes the default mouse cursor.
-		//Toolkit toolkit = Toolkit.getDefaultToolkit();
-		//Image image = toolkit.getImage(References.CURSORS + "hand_cursor.gif");
-		//Point hotSpot = new Point(0,0);
-		//Cursor cursor = toolkit.createCustomCursor(image, hotSpot, "Hand");
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Image image = toolkit.getImage(References.SPRITES_DIR + "cursor.gif");
+		Point hotSpot = new Point(0,0);
+		Cursor cursor = toolkit.createCustomCursor(image, hotSpot, "Hand");
 		
+
 		//Changes the default java program icon to a custom one.
-		//Image icon = Toolkit.getDefaultToolkit().getImage(References.ICONS + "icon.png");
+		Image icon = toolkit.getImage(References.SPRITES_DIR + "icon.png");
+
 		
+
 		frame.add(game);
-		//frame.setCursor(cursor);
-		//frame.setIconImage(icon);
+		frame.setCursor(cursor);
+		frame.setIconImage(icon);
 		frame.setSize(References.WIDTH, References.HEIGHT);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

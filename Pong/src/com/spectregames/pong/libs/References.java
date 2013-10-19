@@ -39,7 +39,7 @@ public class References {
 	
 	public static boolean isRunning = false, isInDevelopment = true, isInDemoMode = false, isInDeBugMode = false, wasBallServed = false;
 	
-	public static final String TITLE = "Pong", SPRITES_DIR = "/sprites/", AUDIO_DIR = "/audio/";
+	public static final String TITLE = "Pong", BASE_DIR = "./assets/", SPRITES_DIR = BASE_DIR + "sprites/", AUDIO_DIR = BASE_DIR + "audio/";
 	
 
 }

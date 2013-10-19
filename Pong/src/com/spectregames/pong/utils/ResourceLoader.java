@@ -44,13 +44,13 @@ public class ResourceLoader {
 	public static void loadImages(){
 		// Image for the SplashScreen.
 		try{
-			//Images.splash_screen = imageLoader.loadImage(References.SPRITES_DIR + "splash.png");
+			//Images.splash_screen = imageLoader.loadImage("splash.png");
 			Images.splash_screen = imageLoader.loadImage(References.SPRITES_DIR + "splash.png");
 		} catch(IOException e){ e.printStackTrace(); }
 		
 		// Image for the Games Background.
 		try{
-			//Images.game_board = imageLoader.loadImage(References.SPRITES_DIR + "pong_field.png");
+			//Images.game_board = imageLoader.loadImage("pong_field.png");
 			Images.game_board = imageLoader.loadImage(References.SPRITES_DIR + "pong_field.png");
 		} catch(IOException e){ e.printStackTrace(); }
 	}
