@@ -25,14 +25,14 @@ package com.spectregames.pong.libs;
 /**
  * Project Name: Pong
  * Package Name: com.spectregames.pong.libs
- * File Name:    References.java
- * Class:        References
+ * File Name:    GameConstants.java
+ * Class:        GameConstants
  *
  * @author Phantom Coder
  * @license http://www.apache.org/license/LICENSE-2.0
  *
  */
-public class References {
+public class GameConstants {
 	
 	public static final int WIDTH = 800, HEIGHT = 600, TABLE_WIDTH = 700, TABLE_HEIGHT = 450, TABLE_TOP = 100, TABLE_BOTTOM = 550, 
 			CENTER_X = WIDTH / 2, CENTER_Y = HEIGHT / 2, PADDLE1_START = 0, PADDLE2_START = 0, PADDLE_INCREMENT = 4;

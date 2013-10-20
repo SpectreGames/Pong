@@ -36,7 +36,7 @@ import javax.swing.JFrame;
 
 import com.spectregames.pong.enums.GameStates;
 import com.spectregames.pong.gfx.Renderer;
-import com.spectregames.pong.libs.References;
+import com.spectregames.pong.libs.GameConstants;
 import com.spectregames.pong.screens.SplashScreen;
 import com.spectregames.pong.utils.ResourceLoader;
 
@@ -52,7 +52,7 @@ import com.spectregames.pong.utils.ResourceLoader;
  */
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = -6515596834996631988L;
-	private static JFrame frame= new JFrame(References.TITLE);
+	private static JFrame frame= new JFrame(GameConstants.TITLE);
 	private static Game game = new Game();
 	
 	public static GameStates state = GameStates.GAME;
@@ -80,7 +80,7 @@ public class Game extends Canvas implements Runnable {
 		
 		Graphics g = bs.getDrawGraphics();
 		g.setColor(new Color(6,0,40));
-		g.fillRect(0, 0, References.WIDTH, References.HEIGHT);
+		g.fillRect(0, 0, GameConstants.WIDTH, GameConstants.HEIGHT);
 		
 		///////////////////////////////////////////////////
 		gfx.renderBackground(g);
@@ -110,7 +110,7 @@ public class Game extends Canvas implements Runnable {
 		int ticks = 0;
 		long timer = System.currentTimeMillis();
 		
-		while (References.isRunning){
+		while (GameConstants.isRunning){
 			long currentTime = System.nanoTime();
 			delta += (currentTime - lastTime) / n;
 			lastTime = currentTime;
@@ -126,7 +126,7 @@ public class Game extends Canvas implements Runnable {
 			if (System.currentTimeMillis() - timer > 1000){
 				timer+=1000;
 				
-			//System.out.println("UDS: " + ticks + ", FPS: " + frames);
+			System.out.println("UDS: " + ticks + ", FPS: " + frames);
 										
 			ticks=0;
 			frames=0;
@@ -137,17 +137,17 @@ public class Game extends Canvas implements Runnable {
 	}			
 
 	private synchronized void start(){
-		if (References.isRunning)
+		if (GameConstants.isRunning)
 			return;
-		References.isRunning = true;
+		GameConstants.isRunning = true;
 		game_thread = new Thread(this);
 		game_thread.start();
 	}
 	
 	private synchronized void stop(){
-		if (!References.isRunning)
+		if (!GameConstants.isRunning)
 			return;
-		References.isRunning = false;
+		GameConstants.isRunning = false;
 		
 		try {
 			game_thread.join();
@@ -158,26 +158,26 @@ public class Game extends Canvas implements Runnable {
 
 	public static void main(String[] args) {
 		// Sets the game window size.
-		game.setPreferredSize(new Dimension(References.WIDTH, References.HEIGHT));
-		game.setMinimumSize(new Dimension(References.WIDTH, References.HEIGHT));
-		game.setMaximumSize(new Dimension(References.WIDTH, References.HEIGHT));
+		game.setPreferredSize(new Dimension(GameConstants.WIDTH, GameConstants.HEIGHT));
+		game.setMinimumSize(new Dimension(GameConstants.WIDTH, GameConstants.HEIGHT));
+		game.setMaximumSize(new Dimension(GameConstants.WIDTH, GameConstants.HEIGHT));
 		
 		// Changes the default mouse cursor.
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		Image image = toolkit.getImage(References.SPRITES_DIR + "cursor.gif");
+		Image image = toolkit.getImage(GameConstants.SPRITES_DIR + "cursor.gif");
 		Point hotSpot = new Point(0,0);
 		Cursor cursor = toolkit.createCustomCursor(image, hotSpot, "Hand");
 		
 
 		//Changes the default java program icon to a custom one.
-		Image icon = toolkit.getImage(References.SPRITES_DIR + "icon.png");
+		Image icon = toolkit.getImage(GameConstants.SPRITES_DIR + "icon.png");
 
 		
 
 		frame.add(game);
 		frame.setCursor(cursor);
 		frame.setIconImage(icon);
-		frame.setSize(References.WIDTH, References.HEIGHT);
+		frame.setSize(GameConstants.WIDTH, GameConstants.HEIGHT);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setFocusable(true);

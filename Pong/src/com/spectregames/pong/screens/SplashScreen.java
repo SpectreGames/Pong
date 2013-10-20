@@ -24,7 +24,7 @@ package com.spectregames.pong.screens;
 
 import java.awt.Graphics;
 
-import com.spectregames.pong.libs.References;
+import com.spectregames.pong.libs.GameConstants;
 import com.spectregames.pong.utils.Images;
 
 
@@ -42,7 +42,7 @@ import com.spectregames.pong.utils.Images;
 public class SplashScreen {
 	
 	public void render(Graphics g){
-		g.drawImage(Images.splash_screen, 0, 0, References.WIDTH, References.HEIGHT, null);
+		g.drawImage(Images.splash_screen, 0, 0, GameConstants.WIDTH, GameConstants.HEIGHT, null);
 	}
 
 }

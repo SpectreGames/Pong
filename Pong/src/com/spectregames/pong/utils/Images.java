@@ -41,7 +41,5 @@ public class Images {
 	
 	// Game Background Image.
 	public static BufferedImage game_board;
-	
-	// Program Icon Image.
-	public static BufferedImage custom_icon;
+
 }

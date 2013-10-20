@@ -27,7 +27,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 import com.spectregames.pong.Game;
-import com.spectregames.pong.libs.References;
+import com.spectregames.pong.libs.GameConstants;
 import com.spectregames.pong.utils.Images;
 
 /**
@@ -46,7 +46,7 @@ public class Renderer {
 			case CREDITS:
 				break;
 			case GAME:
-				g.drawImage(Images.game_board, 0, 0, References.WIDTH, References.HEIGHT, null);
+				g.drawImage(Images.game_board, 0, 0, GameConstants.WIDTH, GameConstants.HEIGHT, null);
 				break;
 			case INSTRUCTIONS:
 				break;
@@ -61,7 +61,7 @@ public class Renderer {
 				System.exit(1);
 				break;
 			case SPLASH:
-				if (!References.isInDevelopment){
+				if (!GameConstants.isInDevelopment){
 					Game.getInstance().splash.render(g);    
 					break;
 				}
@@ -70,7 +70,7 @@ public class Renderer {
 				Font tempFont = new Font("Arial", Font.BOLD, 45);
 				g.setFont(tempFont);
 				g.setColor(Color.RED);
-				g.drawString("UNKNOWN GAMESTATE", References.CENTER_X -275, References.CENTER_Y);
+				g.drawString("UNKNOWN GAMESTATE", GameConstants.CENTER_X -275, GameConstants.CENTER_Y);
 				break;
 			}
 	}
